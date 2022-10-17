@@ -25,4 +25,5 @@ loompy 3.0.6
 matplotlib 3.6.0
 ```
 
-*Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. The simulations 
+*Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. Raw data and *Monod* results are available on [Zenodo](https://zenodo.org/record/7217195). The simulations can be immediately reproduced using Google Colaboratory. 
+
