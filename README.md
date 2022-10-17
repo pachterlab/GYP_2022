@@ -33,7 +33,7 @@ To obtain brain FASTQ files, download them from NeMO. To obtain liver FASTQ file
 
 To obtain whitelists for the liver dataset, run `gg220908_liver_whitelist.ipynb`. 
 
-To obtain count matrices, build a `kb` intronic reference (as described [previously](https://github.com/pachterlab/GP_2021_3/tree/master/processing_scripts/make_references)) and run the scripts in `counting/kb/` to obtain spliced and unspliced count matrices in the `loom` format. The results of the `kb` pipeline are available on [Zenodo](https://zenodo.org/record/7217195).
+To generate count matrices, build a `kb` intronic reference (as described [previously](https://github.com/pachterlab/GP_2021_3/tree/master/processing_scripts/make_references)) and run the scripts in `counting/kb/` to obtain spliced and unspliced count matrices in the `loom` format. The results of the `kb` pipeline are available on [Zenodo](https://zenodo.org/record/7217195).
 
 To run the *Monod* pipeline, run `gg220909_monod_allen.ipynb` and `gg220909_monod_liver.ipynb` using the `loom` files and annotations.
 
