@@ -11,7 +11,7 @@ This repository contains all of the simulation and analysis code for the manuscr
   * `kb/`: scripts to pseudoalign datasets using `kb-python`. 
 * `polyA_ref/`: poly(A) count and gene length references, copied from the [*Monod* example repository](https://github.com/pachterlab/monod_examples); used for internal QC but not for analysis.
 
-# Installation guide
+# Installation
 
 The following packages were used to perform the analyses:
 ```
@@ -27,3 +27,16 @@ matplotlib 3.6.0
 
 *Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. Raw data and *Monod* results are available on [Zenodo](https://zenodo.org/record/7217195). The simulations can be immediately reproduced using Google Colaboratory. 
 
+# Reproducibility guide
+
+To obtain brain FASTQ files, download them from NeMO. To obtain liver FASTQ files, use the scripts in `counting/liver/` to convert BAM or SRA files.
+
+To obtain whitelists for the liver dataset, run `gg220908_liver_whitelist.ipynb`. 
+
+To obtain count matrices, build a `kb` intronic reference (as described [previously](https://github.com/pachterlab/GP_2021_3/tree/master/processing_scripts/make_references)) and run the scripts in `counting/kb/` to obtain spliced and unspliced count matrices in the `loom` format. The results of the `kb` pipeline are available on [Zenodo](https://zenodo.org/record/7217195).
+
+To run the *Monod* pipeline, run `gg220909_monod_allen.ipynb` and `gg220909_monod_liver.ipynb` using the `loom` files and annotations.
+
+To generate Figures 1c and 3, run `gg220909_monod_analysis.ipynb` using the *Monod* search data and result files. These files are available on [Zenodo](https://zenodo.org/record/7217195).
+
+To generate Figure 2, run `gg220909_telegraph.ipynb`.
