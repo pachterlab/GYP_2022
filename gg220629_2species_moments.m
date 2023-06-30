@@ -39,28 +39,28 @@ Uint = int(U,s,0,inf);
 %%%%%%%%%%%%%%%%%%%%
 
 fprintf('\nextrinsic\n')
-
-syms nu 
-assume(nu,'positive');
-G3 = -nu*log(1-theta*Uint);
-
-m1 = subs(subs(diff(G3,un),un,0),um,0);
-m2 = subs(subs(diff(G3,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G3,un,2),un,0),um,0)/m1);
-f2 = simplify(subs(subs(diff(G3,um,2),un,0),um,0)/m2);
-cov = simplify(subs(subs(diff(diff(G3,um),un),un,0),um,0));
-
-
-fprintf('m1: %s\n',m1)
-fprintf('m2: %s\n',m2)
-fprintf('f1: %s\n',f1)
-fprintf('f2: %s\n',f2)
-fprintf('cov: %s\n',cov)
-
-corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
-fprintf('corr^2: %s\n',simplify(corr^2))
-
-%%%%%%%%%%%%%%%%%%%%
+% 
+% syms nu 
+% assume(nu,'positive');
+% G3 = -nu*log(1-theta*Uint);
+% 
+% m1 = subs(subs(diff(G3,un),un,0),um,0);
+% m2 = subs(subs(diff(G3,um),un,0),um,0);
+% f1 = simplify(subs(subs(diff(G3,un,2),un,0),um,0)/m1);
+% f2 = simplify(subs(subs(diff(G3,um,2),un,0),um,0)/m2);
+% cov = simplify(subs(subs(diff(diff(G3,um),un),un,0),um,0));
+% 
+% 
+% fprintf('m1: %s\n',m1)
+% fprintf('m2: %s\n',m2)
+% fprintf('f1: %s\n',f1)
+% fprintf('f2: %s\n',f2)
+% fprintf('cov: %s\n',cov)
+% 
+% corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
+% fprintf('corr^2: %s\n',simplify(corr^2))
+% 
+% %%%%%%%%%%%%%%%%%%%%
 
 fprintf('\nextrinsic TWO\n')
 
@@ -70,8 +70,8 @@ G3 = (1-theta*Uint)^-nu;
 
 m1 = subs(subs(diff(G3,un),un,0),um,0);
 m2 = subs(subs(diff(G3,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G3,un,2) + m1 - m1^2,un,0),um,0)/m1-1);
-f2 = simplify(subs(subs(diff(G3,um,2) + m2 - m2^2,un,0),um,0)/m2-1);
+f1 = simplify((subs(subs(diff(G3,un,2),un,0),um,0) + m1 - m1^2)/m1-1);
+f2 = simplify((subs(subs(diff(G3,um,2),un,0),um,0) + m2 - m2^2)/m2-1);
 cov = simplify(subs(subs(diff(diff(G3,um),un),un,0),um,0)-m1*m2);
 
 
@@ -87,30 +87,30 @@ fprintf('corr^2: %s\n',simplify(corr^2))
 %%%%%%%%%%%%%%%%%%%%
 
 fprintf('\nDelayed efflux\n')
-
-Up = um+(un-um)*exp(-bet*tau);
-G6 = alf*tau*b*um/(1-b*um) - alf/bet * log(1-b*Up) + alf/bet / (1-b*um) * log((b*Up-1)/(b*un-1));
-% G6 = exp(G6);
-subs(subs(G6,un,0),um,0);
-m1 = subs(subs(diff(G6,un),un,0),um,0);
-m2 = subs(subs(diff(G6,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G6,un,2),un,0),um,0)/m1);
-f2 = simplify(subs(subs(diff(G6,um,2),un,0),um,0)/m2);
-cov = simplify(subs(subs(diff(diff(G6,um),un),un,0),um,0));
-
-
-fprintf('m1: %s\n',simplify(m1))
-fprintf('m2: %s\n',m2)
-fprintf('f1: %s\n',simplify(f1))
-fprintf('f2: %s\n',simplify(f2))
-fprintf('cov: %s\n',cov)
-corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
-fprintf('corr^2: %s\n',simplify(corr^2))
-
-
-%%%%%%%%%%%%%%%%%%%%
-
-fprintf('\nDelayed efflux TWO\n')
+% 
+% Up = um+(un-um)*exp(-bet*tau);
+% G6 = alf*tau*b*um/(1-b*um) - alf/bet * log(1-b*Up) + alf/bet / (1-b*um) * log((b*Up-1)/(b*un-1));
+% % G6 = exp(G6);
+% subs(subs(G6,un,0),um,0);
+% m1 = subs(subs(diff(G6,un),un,0),um,0);
+% m2 = subs(subs(diff(G6,um),un,0),um,0);
+% f1 = simplify(subs(subs(diff(G6,un,2),un,0),um,0)/m1);
+% f2 = simplify(subs(subs(diff(G6,um,2),un,0),um,0)/m2);
+% cov = simplify(subs(subs(diff(diff(G6,um),un),un,0),um,0));
+% 
+% 
+% fprintf('m1: %s\n',simplify(m1))
+% fprintf('m2: %s\n',m2)
+% fprintf('f1: %s\n',simplify(f1))
+% fprintf('f2: %s\n',simplify(f2))
+% fprintf('cov: %s\n',cov)
+% corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
+% fprintf('corr^2: %s\n',simplify(corr^2))
+% 
+% 
+% %%%%%%%%%%%%%%%%%%%%
+% 
+% fprintf('\nDelayed efflux TWO\n')
 
 Up = um+(un-um)*exp(-bet*tau);
 G6 = exp(alf*tau*b*um/(1-b*um) - alf/bet * log(1-b*Up) + alf/bet / (1-b*um) * log((b*Up-1)/(b*un-1)));
@@ -118,8 +118,8 @@ G6 = exp(alf*tau*b*um/(1-b*um) - alf/bet * log(1-b*Up) + alf/bet / (1-b*um) * lo
 subs(subs(G6,un,0),um,0);
 m1 = subs(subs(diff(G6,un),un,0),um,0);
 m2 = subs(subs(diff(G6,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G6,un,2)+ m1 - m1^2,un,0),um,0)/m1-1);
-f2 = simplify(subs(subs(diff(G6,um,2)+ m2 - m2^2,un,0),um,0)/m2-1);
+f1 = simplify((subs(subs(diff(G6,un,2),un,0),um,0) + m1 - m1^2)/m1-1);
+f2 = simplify((subs(subs(diff(G6,um,2),un,0),um,0) + m2 - m2^2)/m2-1);
 cov = simplify(subs(subs(diff(diff(G6,um),un),un,0),um,0)-m1*m2);
 
 
@@ -135,34 +135,34 @@ fprintf('corr^2: %s\n',simplify(corr^2))
 %%%%%%%%%%%%%%%%%%%%
 
 fprintf('\nDelayed splicing\n')
-
-G5 = alf*tau*b*un/(1-b*un) - alf/gam * log(1-b*um);
-
-m1 = subs(subs(diff(G5,un),un,0),um,0);
-m2 = subs(subs(diff(G5,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G5,un,2),un,0),um,0)/m1);
-f2 = simplify(subs(subs(diff(G5,um,2),un,0),um,0)/m2);
-cov = simplify(subs(subs(diff(diff(G5,um),un),un,0),um,0));
-
-
-fprintf('m1: %s\n',m1)
-fprintf('m2: %s\n',m2)
-fprintf('f1: %s\n',f1)
-fprintf('f2: %s\n',f2)
-fprintf('cov: %s\n',cov)
-corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
-fprintf('corr^2: %s\n',simplify(corr^2))
-
-%%%%%%%%%%%%%%%%%%%%
-
-fprintf('\nDelayed splicing TWO\n')
+% 
+% G5 = alf*tau*b*un/(1-b*un) - alf/gam * log(1-b*um);
+% 
+% m1 = subs(subs(diff(G5,un),un,0),um,0);
+% m2 = subs(subs(diff(G5,um),un,0),um,0);
+% f1 = simplify(subs(subs(diff(G5,un,2),un,0),um,0)/m1);
+% f2 = simplify(subs(subs(diff(G5,um,2),un,0),um,0)/m2);
+% cov = simplify(subs(subs(diff(diff(G5,um),un),un,0),um,0));
+% 
+% 
+% fprintf('m1: %s\n',m1)
+% fprintf('m2: %s\n',m2)
+% fprintf('f1: %s\n',f1)
+% fprintf('f2: %s\n',f2)
+% fprintf('cov: %s\n',cov)
+% corr = cov/sqrt((f1+1)*(f2+1)*m1*m2);
+% fprintf('corr^2: %s\n',simplify(corr^2))
+% 
+% %%%%%%%%%%%%%%%%%%%%
+% 
+% fprintf('\nDelayed splicing TWO\n')
 
 G5 = exp(alf*tau*b*un/(1-b*un)) *(1-b*um)^(- alf/gam);
 
 m1 = subs(subs(diff(G5,un),un,0),um,0);
 m2 = subs(subs(diff(G5,um),un,0),um,0);
-f1 = simplify(subs(subs(diff(G5,un,2)+ m1 - m1^2,un,0),um,0)/m1-1);
-f2 = simplify(subs(subs(diff(G5,um,2)+ m2 - m2^2,un,0),um,0)/m2-1);
+f1 = simplify((subs(subs(diff(G5,un,2),un,0),um,0) + m1 - m1^2)/m1-1);
+f2 = simplify((subs(subs(diff(G5,um,2),un,0),um,0) + m2 - m2^2)/m2-1);
 cov = simplify(subs(subs(diff(diff(G5,um),un),un,0),um,0)-m1*m2);
 
 
