@@ -42,6 +42,8 @@ To run the inference pipeline, run `gg230620_mcmc_allen.ipynb` and `gg230621_mcm
 * Use PyMC3 to obtain model parameter posteriors for each gene, using the *Monod* solvers for likelihood functions.
 * Generate `pickle` files for each search, comprising a list of PyMC3 traces. 
 
-To generate Figures 1c, 2, 3, S3, and S4 run `gg230612_BF_analysis.ipynb` using the data and result files. These files are available on [Zenodo](https://zenodo.org/record/8122410).
+To generate Figures 1c, 2, 3, S3, and S4 run `gg230612_BF_analysis.ipynb` using the data and result files. These files are available on [Zenodo](https://zenodo.org/record/8122410), as are the intermediate results. This notebook also generates Supplementary Data File 1 (`gg230705_smc_results.xlsx`).
 
-To generate Figure 2, run `gg220909_telegraph.ipynb`.
+To generate Figure S1, run `delay_cat_sim_twospec` and `delay_cauchy.ipynb`. To generate Figure S2, run `gg220909_telegraph.ipynb`.
+
+Some derivations in the manuscript are partially automated using MATLAB scripts. To reproduce the moment calculations, run `gg230629_odesolv.mlx`. To reproduce the characteristic calculations, run `gg220629_2species_moments.m`.
