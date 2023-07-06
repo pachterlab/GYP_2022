@@ -16,7 +16,7 @@ This repository contains all of the simulation and analysis code for the manuscr
 The following packages were used to perform the analyses:
 ```
 kb-tools 0.26.0
-monod 0.2.4.0
+monod 0.2.6.0
 numdifftools 0.9.40
 pandas 1.2.4
 numpy 1.23.2
@@ -25,7 +25,7 @@ loompy 3.0.6
 matplotlib 3.6.0
 ```
 
-*Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. Raw data and *Monod* results are available on [Zenodo](https://zenodo.org/record/7217195). The simulations can be immediately reproduced using Google Colaboratory. 
+*Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. Raw data and *Monod* results are available on [Zenodo](https://zenodo.org/record/8122410). The simulations can be immediately reproduced using Google Colaboratory. 
 
 # Reproducibility guide
 
@@ -35,8 +35,13 @@ To obtain whitelists for the liver dataset, run `gg220908_liver_whitelist.ipynb`
 
 To generate count matrices, build a `kb` intronic reference (as described [previously](https://github.com/pachterlab/GP_2021_3/tree/master/processing_scripts/make_references)) and run the scripts in `counting/kb/` to obtain spliced and unspliced count matrices in the `loom` format. The results of the `kb` pipeline are available on [Zenodo](https://zenodo.org/record/7217195).
 
-To run the *Monod* pipeline, run `gg220909_monod_allen.ipynb` and `gg220909_monod_liver.ipynb` using the `loom` files and annotations.
+To run the inference pipeline, run `gg230620_mcmc_allen.ipynb` and `gg230621_mcmc_liver.ipynb` using the `loom` files and annotations. This will perform the following tasks:
+* Filter cells.
+* Select a set of genes with at least moderate expression in all datasets for a category.
+* Extract their count data to a *Monod* `SearchData` or `sd` object.
+* Use PyMC3 to obtain model parameter posteriors for each gene, using the *Monod* solvers for likelihood functions.
+* Generate `pickle` files for each search, comprising a list of PyMC3 traces. 
 
-To generate Figures 1c and 3, run `gg220909_monod_analysis.ipynb` using the *Monod* search data and result files. These files are available on [Zenodo](https://zenodo.org/record/7217195).
+To generate Figures 1c, 2, 3, S3, and S4 run `gg230612_BF_analysis.ipynb` using the data and result files. These files are available on [Zenodo](https://zenodo.org/record/8122410).
 
 To generate Figure 2, run `gg220909_telegraph.ipynb`.
