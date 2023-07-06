@@ -23,6 +23,8 @@ numpy 1.23.2
 scipy 1.9.1
 loompy 3.0.6
 matplotlib 3.6.0
+PyMC 3.11.5
+Theano-PyMC 1.1
 ```
 
 *Monod* is under active development, and its most recent version is located in the [dev branch](https://github.com/pachterlab/monod/tree/dev). The real data analysis was performed without explicit multithreading, using a single 3.7GHz core on a dedicated server. Raw data and *Monod* results are available on [Zenodo](https://zenodo.org/record/8122410). The simulations can be immediately reproduced using Google Colaboratory. 
