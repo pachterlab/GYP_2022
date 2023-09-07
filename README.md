@@ -1,7 +1,5 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8122410.svg)](https://doi.org/10.5281/zenodo.8122410)
 
-Please keep in mind that the Zenodo package is not yet active, but will be shortly.
-
 # Overview
 This repository contains all of the simulation and analysis code for the manuscript ["Transient and delay chemical master equations"](https://www.biorxiv.org/content/10.1101/2022.10.17.512599v1), a discussion of the prospects for solving and applying delay master equations in the context of RNA sequencing. In the first part of the report, we numerically solve a fairly generic set of systems with gene switching and mixed Markovian/non-Markovian downstream processing.  In the second part, we analytically solve a set of bursty two-species systems with delayed steps, fit single-cell and single-nucleus RNA sequencing data, and compare the fits to draw conclusions about model suitability and identifiability.
 
